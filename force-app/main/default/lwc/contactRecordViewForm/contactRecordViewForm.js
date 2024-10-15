@@ -47,8 +47,8 @@ export default class ContactRecordViewForm extends LightningElement {
         let modifiedOpps = [];
         try {
             if (data) {
-                console.log(data);     
-                data.array.forEach(opp => {
+                console.log("data of oppp ******* "+data[0].Name);     
+                data.forEach(opp => {
                         let opportunity = {};
                     opportunity.Name = "Test - "+opp.Name
                     modifiedOpps.push(opportunity);
@@ -72,7 +72,12 @@ export default class ContactRecordViewForm extends LightningElement {
     
     
     async callContactAndLeads(){
+        console.log('Button Tapped');
+        
         let result  = await getContactsLeads({email:"test@test.com"});
+        console.log('results contacts : '+result.contacts);
+        console.log('results leads : '+result.leads);
+        
         this.returnedContactsData = result.contacts;
         this.returnedLeadsData = result.leads;
     }

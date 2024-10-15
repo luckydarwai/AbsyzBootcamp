@@ -57,12 +57,12 @@ mode="view"
 
 <!--Getting data from the Js via the apex class-->
 <h1 class="slds-align_absolute-center" style="height:6rem">Opportunities From Apex Class</h1>
-<template for:each={listOfOpportunities.data} for:item=opp>
+<template for:each={listOfOpportunities.data} for:item="opp">
     Opportunity Amount : {opp.Amount}
 </template>
 
-
-<template for:each={processedOpportunities} for:item=opp>
+<h1>OPP Name</h1>
+<template for:each={processedOpportunities} for:item="opp">
     Opportunity Name : {opp.Name}
     <!-- Opportunity Amount : {opp.Amount} -->
 </template>
