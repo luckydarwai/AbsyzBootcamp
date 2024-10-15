@@ -1,0 +1,37 @@
+<template>
+    
+    <br title="Contact Edit Form">
+        <div class="slds-m-left_medium slds-m-right_medium">
+            <lightning-layout>
+                <lightning-layout-item size="6" padding="horizontal-medium">
+                    <lightning-input lwc:ref="firstNameElement" type="text" label="First Name"></lightning-input> 
+                    <lightning-input lwc:ref="lastNameElement" type="text" label="Last Name"></lightning-input> 
+                    <lightning-input lwc:ref="dobElement" type="date" label="DOB"></lightning-input> 
+                </lightning-layout-item>
+                <lightning-layout-item size="6" padding="horizontal-medium">
+                    <lightning-input lwc:ref="emailElement" type="text" label="Email"></lightning-input> 
+                    <lightning-input lwc:ref="phoneElement" type="text" label="Phone"></lightning-input> 
+                    <lightning-input lwc:ref="accountNameElement" type="search" label="Account"></lightning-input>         
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        
+        <div class="slds-m-top_medium slds-align_absolute-center slds-p-top_small">
+            <lightning-button label="Cancel" title="Primary action" onclick={onCancel} class="slds-m-left_x-small"></lightning-button>
+            <lightning-button variant="brand" label="Save" title="Primary action" onclick={onSave} class="slds-m-left_x-small"></lightning-button>
+        </div>
+        
+        
+        
+        <!-- Calling Child Component -->
+        <template lwc:if={showChild} >
+            <div class="slds-p-top_medium"></div>
+            <!-- Here these values getting from the java script file -->
+            <c-contact-edit-form-child first-name={firstName} last-name={lastName} dob={dob} email={email} phone={phone} account-name={accountName}></c-contact-edit-form-child>
+            <!-- last-name={lastName} dob={dob} email={email} phone={phone} account-name={accountName} -->
+        </template>
+            
+        
+    
+    
+</template>

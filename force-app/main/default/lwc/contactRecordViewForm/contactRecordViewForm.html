@@ -1,0 +1,79 @@
+<template>
+    
+    <!-- Static use case -->
+    <!-- <lightning-record-view-form
+    record-id={recordId}
+    object-api-name="Contact">
+    <div class="slds-box">
+        <lightning-output-field field-name="FirstName"> </lightning-output-field>
+        <lightning-output-field field-name="LastName"> </lightning-output-field>
+        <lightning-output-field field-name="Email">
+        </lightning-output-field>
+    </div>
+</lightning-record-view-form> -->
+
+
+<!-- Dynamic use case -->
+<!-- <lightning-record-form
+record-id={recordId}
+object-api-name={objectApiName}
+layout-type="Full"
+mode="view"
+>
+</lightning-record-form> -->
+
+
+
+
+<lightning-card title="My Contact Record" icon-name="standard:contact">
+    <template lwc:if={returndContact.data}>
+        <div class="slds-m-around_medium">
+            
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <p>{name}</p>
+                    <p>{title}</p>
+                </div>
+                <div class="slds-col">
+                    <p><lightning-formatted-phone value={returndContact.data.fields.Phone.value}></lightning-formatted-phone></p>
+                    <p><lightning-formatted-email value={returndContact.data.fields.Email.value}></lightning-formatted-email></p>
+                    
+                </div>
+                <div class="slds-col">
+                    <p>{phone}</p>
+                </div>
+            </div>            
+            
+            
+        </div>
+    </template>
+    <template lwc:if={returndContact.error}>
+        No Records
+    </template>
+</lightning-card>
+
+
+
+
+<!--Getting data from the Js via the apex class-->
+<h1 class="slds-align_absolute-center" style="height:6rem">Opportunities From Apex Class</h1>
+<template for:each={listOfOpportunities.data} for:item=opp>
+    Opportunity Amount : {opp.Amount}
+</template>
+
+
+<template for:each={processedOpportunities} for:item=opp>
+    Opportunity Name : {opp.Name}
+    <!-- Opportunity Amount : {opp.Amount} -->
+</template>
+
+
+<lightning-button label="Call Contacts Leads" onclick={callContactAndLeads}></lightning-button>
+<template for:each={returnedContactsData} for:item=con>
+    Conatct Name : {con.Name}
+</template>
+
+<template for:each={returnedLeadsData} for:item=lead>
+    Lead Name : {lead.Name}
+</template>
+</template>

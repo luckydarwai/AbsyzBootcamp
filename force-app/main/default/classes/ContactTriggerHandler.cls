@@ -130,10 +130,10 @@ public with sharing class ContactTriggerHandler {
 
 
 
- // Assignmnet - 21 New 
+ // Assignmnet - 22 New 
  public static void updateTotalValueOnAccount(List<Contact> newConList, Map<Id, Contact> oldMapCon) {
-    List<Contact> conList = new List<Contact>();
-    Set<Id> conIds = new Set<Id>();
+    // List<Contact> conList = new List<Contact>();
+    // Set<Id> conIds = new Set<Id>();
     Set<Id> accountIds = new Set<Id>();
 
     for (Contact con : newConList) {
@@ -141,15 +141,15 @@ public with sharing class ContactTriggerHandler {
         if (oldMapCon != null && oldMapCon.containsKey(con.Id)) {
  
             if (con.Value__c != null && oldMapCon.get(con.Id).Value__c != null && con.Value__c != oldMapCon.get(con.Id).Value__c) {
-                conList.add(con);
-                conIds.add(con.Id);
+                // conList.add(con);
+                // conIds.add(con.Id);
                 accountIds.add(con.AccountId);
             }
         } else {
            
             if (con.Value__c != null) {
-                conList.add(con);
-                conIds.add(con.Id);
+                // conList.add(con);
+                // conIds.add(con.Id);
                 accountIds.add(con.AccountId);
             }
         }
