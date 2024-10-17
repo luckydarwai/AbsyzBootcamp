@@ -7,7 +7,7 @@ export default class ContactEditForm extends LightningElement {
      phone;
      dob;
      accountName;
-     showChild=false;
+     showChild=true;
 
      onSave(){
         // Black Function ----
@@ -21,17 +21,32 @@ export default class ContactEditForm extends LightningElement {
        this.accountName =  this.refs.accountNameElement.value;
     //    console.log(this.firstName);
        
-       this.showChild = true;
+       this.showChild = false;
      }
 
 
-     onCancel(){
-      this.firstName='';
-      this.lastName='';
-      this.email='';
-      this.phone='';
-      this.dob='';
-      this.accountName='';
-      this.showChild = false;
+   //   onCancel(){
+   //    this.firstName='';
+   //    this.lastName='';
+   //    this.email='';
+   //    this.phone='';
+   //    this.dob='';
+   //    this.accountName='';
+   //    this.showChild = false;
+   //   }
+
+
+     showInputForm(event){
+      console.log(JSON.stringify(event.details));
+      this.firstName = event.details.firstName;
+      this.lastName = event.details.lastName;
+      this.email = event.details.email;      
+      this.showChild = true;
+     }
+
+
+     callChildsFunction(){
+      let child = this.refs.childcomp
+      child.callMeFromParent(); //right
      }
 }

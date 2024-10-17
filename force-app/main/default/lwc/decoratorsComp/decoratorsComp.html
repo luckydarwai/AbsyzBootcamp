@@ -1,0 +1,18 @@
+<template>
+    
+    <lightning-card  title="Gretting Mnessage">
+        <div class="slds-p-left_xx-small">
+            <p>{greet}</p>
+            <p>{message}</p>
+        </div>
+
+        <div class="slds-p-left_x-small slds-p-top_x-small">
+        <lightning-button variant="brand" label="Change Text" icon-name="utility:download" title="Change Default Text" onclick={clickHandler}></lightning-button>
+    </div>
+    <div class="slds-p-left_x-small slds-p-top_x-small"> 
+    <p>First Name :  {myDetails.fname}</p>
+    <lightning-button variant="brand" label="Show Name" icon-name="utility:download" title="Change Default Text" onclick={nameShowHandler}></lightning-button>
+  </div>
+</lightning-card>
+    
+</template>

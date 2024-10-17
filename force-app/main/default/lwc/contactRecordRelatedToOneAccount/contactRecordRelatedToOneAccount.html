@@ -1,0 +1,35 @@
+<template>
+    <lightning-combobox
+    name="accounts"
+    label="Account Name"
+    value={value}
+    placeholder="Account Name"
+    options={options}
+    onchange={handleChange} 
+    >
+</lightning-combobox>
+<p>Selected Account is: {value}</p>
+
+<lightning-card icon-name="standard:account" variant="base">
+  <div slot="title">
+      Create Contact For Above Account
+  </div>
+  
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="Enter Last Name"></lightning-input>
+    </div>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="Enter Title"></lightning-input>
+    </div>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="email" label="Enter Email"></lightning-input>
+    </div>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="number" label="Enter Phone"></lightning-input>
+    </div>
+    <lightning-button variant="brand" label="Save" title="Primary action" onclick={createContact} class="slds-m-left_x-small"></lightning-button>
+  
+</lightning-card>
+
+
+</template>

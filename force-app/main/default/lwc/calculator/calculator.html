@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="Calculator">
+        <!-- inputs -->
+        <div class="slds-var-p-around_small">
+            <lightning-input 
+            label="Number 1"
+            name="number1"
+            onchange={changeHandler}
+            placeholder="Enter Number 1"
+            value={numberOne}
+            >
+        </lightning-input>
+        <lightning-input 
+        label="Number 2"
+        name="number2"
+        onchange={changeHandler}
+        placeholder="Enter Number 2"
+        value={numberTwo}
+        >
+    </lightning-input>
+</div>
+
+<!-- Buttons  -->
+<div class="slds-var-p-around_small">
+    <lightning-button
+    label="Add"
+    variant="brand"
+    class="slds-var-p-around_small"
+    onclick={calculateInput}
+    >
+</lightning-button>
+<lightning-button
+label="Sub"
+variant="brand"
+class="slds-var-p-around_small"
+onclick={calculateInput}
+>
+</lightning-button>
+<lightning-button
+label="Mul"
+variant="brand"
+class="slds-var-p-around_small"
+onclick={calculateInput}
+>
+</lightning-button>
+<lightning-button
+label="Div"
+variant="brand"
+class="slds-var-p-around_small"
+onclick={calculateInput}
+>
+</lightning-button>
+
+<!-- Output  -->
+<div class="slds-var-p-around_small">
+    <p>Output : {result}</p>
+</div>
+</div>
+</lightning-card>
+</template>

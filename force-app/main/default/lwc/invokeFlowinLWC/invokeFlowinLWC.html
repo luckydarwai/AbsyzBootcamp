@@ -1,0 +1,23 @@
+<template>
+  
+
+    <lightning-card icon-name="standard:account" variant="base">
+      <div slot="title">
+       <h1> Flow LWC Component </h1>
+
+        <!-- <lightning-flow
+        flow-api-name="Survey_customers"
+        flow-finish-behavior="RESTART"
+        flow-input-variables={inputVariables}
+        flow-interview-id=""
+        onstatuschange={handleStatusChange}
+      ></lightning-flow> -->
+
+      <lightning-flow  flow-api-name="flowInLWC" flow-input-variables="{}">
+
+      </lightning-flow>
+      </div>
+      
+    </lightning-card>
+   
+</template>

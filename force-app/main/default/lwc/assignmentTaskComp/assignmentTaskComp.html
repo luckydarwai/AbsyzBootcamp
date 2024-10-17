@@ -1,0 +1,29 @@
+<template>
+    <lightning-card  title="Gretting Message">
+        <template if:true={showTextVar}>
+            <div class="slds-p-left_xx-small">
+                <h1>Hello World ! My Name is {name}</h1>
+            </div>
+        </template>
+        <div class="slds-box">
+            <h2 class="header">Show Text Checkbox</h2>
+            <lightning-input type="checkbox" label="Visible option" name="input1" onchange={showText}></lightning-input>
+        </div>
+    </lightning-card>    
+    
+    
+
+    <!-- Task 4 -->
+    <lightning-card title="Related Contacts" icon-name="standard:contact">
+        <template if:true={contactList}>
+            <lightning-datatable
+                            key-field="Id"
+                data={contactList}
+                columns={columns}>
+            </lightning-datatable>
+        </template>
+        <!-- <template if:true={contacts.error}>
+            <p class="slds-text-color_error">{contacts.error}</p>
+        </template> -->
+    </lightning-card>
+</template>

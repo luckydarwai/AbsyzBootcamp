@@ -140,14 +140,14 @@ public with sharing class ContactTriggerHandler {
        
         if (oldMapCon != null && oldMapCon.containsKey(con.Id)) {
  
-            if (con.Value__c != null && oldMapCon.get(con.Id).Value__c != null && con.Value__c != oldMapCon.get(con.Id).Value__c) {
+            if ( con.phone != null && con.Value__c != null && oldMapCon.get(con.Id).Value__c != null && con.Value__c != oldMapCon.get(con.Id).Value__c) {
                 // conList.add(con);
                 // conIds.add(con.Id);
                 accountIds.add(con.AccountId);
             }
         } else {
            
-            if (con.Value__c != null) {
+            if (con.Value__c != null && con.phone != null) {
                 // conList.add(con);
                 // conIds.add(con.Id);
                 accountIds.add(con.AccountId);
