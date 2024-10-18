@@ -7,4 +7,11 @@ public with sharing class contactController {
             WHERE AccountId = :accountId
         ];
     }
+
+
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getContactsRecord()
+    {
+        return [SELECT Id, Name, Title, Phone, Email FROM Contact];
+    }
 }           
