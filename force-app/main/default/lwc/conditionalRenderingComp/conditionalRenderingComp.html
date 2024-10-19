@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Conditional Rendering" icon-name="custom:custom14">
+        <div class="slds-p-around_small">
+            <lightning-input 
+            type="checkbox"     
+            label="Display Message" 
+            name="input1"
+            onchange={changeHandler}
+            >
+        </lightning-input>
+    </div>
+    <div class="slds-p-around_small">
+        <template lwc:if={displayMessage}>
+        <p>You are Authorized to See this message</p>
+    </template>
+        <template lwc:else>
+        <p>You are not Authorized to See this message</p>
+    </template>
+    </div>
+
+    <!-- List Rendering  -->
+     <h1><b>List Condition Rendering</b></h1>
+     <div class="slds-p-around_small">
+
+         <template for:each={superStars} for:item="star"> 
+             <p key={star}>{star}</p>
+            </template>
+        </div>
+</lightning-card>
+
+
+<lightning-card title="Load Complex Object">  
+    <div class="slds-var-p-around_small">
+
+        <template for:each={contactList} for:item='contact'>
+        <p key={contact.id}>{contact.firstname}  {contact.lastname}</p>    
+        </template>
+    </div>
+</lightning-card>
+
+
+<lightning-card title="Load Complex Object - Iterator">  
+    <div class="slds-var-p-around_small">
+        <template iterator:it={contactList}>
+       <div key={it.value.id}>
+       <div lwc:if={it.first} class = 'list-first'></div>
+        <p>{it.value.firstname}   {it.value.lastname}</p>       
+       <div lwc:if={it.last} class="list-last"></div>
+
+       </div>
+        </template>
+    </div>
+</lightning-card>
+
+
+
+</template>

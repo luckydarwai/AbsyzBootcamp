@@ -53,7 +53,9 @@ onclick={calculateInput}
 
 <!-- Output  -->
 <div class="slds-var-p-around_small">
-    <p>Output : {result}</p>
+  <template lwc:if={dispalyOutput}> 
+      <p>Output : {result}</p>
+  </template> 
 </div>
 </div>
 </lightning-card>
