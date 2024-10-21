@@ -1,0 +1,15 @@
+<template>
+    <lightning-card
+    title="Get Object Data"
+    icon-name="custom:custom14"
+    >
+    <template lwc:if={accountinfo}>
+        <div class="slds-var-p-around_small">{accountinfo.apiName}</div>
+        <div class="slds-var-p-around_small">{accountinfo.labelPlural}</div>
+        <template for:each={accountinfo.childRelationships} for:item='rel'>
+            <p key={rel.childObjectApiName}>{rel.childObjectApiName}</p>
+        </template>
+    </template>
+    <template lwc:elseif={accounterror}></template>
+</lightning-card>
+</template>

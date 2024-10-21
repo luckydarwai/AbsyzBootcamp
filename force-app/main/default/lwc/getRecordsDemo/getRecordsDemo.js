@@ -1,10 +1,10 @@
-import { LightningElement,wire } from 'lwc';
+import { LightningElement,wire,track } from 'lwc';
 import ACCOUNT_NAME_FIELD from '@salesforce/schema/Account.Name';
 import CONTACT_NAME_FIELD from '@salesforce/schema/Contact.Name';
 import {getRecords} from 'lightning/uiRecordApi';
 export default class GetRecordsDemo extends LightningElement {
 
-  outputs;
+ @track outputs=[];
   error;
 
     @wire(getRecords,{
@@ -25,11 +25,12 @@ export default class GetRecordsDemo extends LightningElement {
             this.outputs = data;
             this.error = null;
             
-        }else if(error){
-            console.log("Error ",error);
-            this.error = error;
-            this.outputs = null;
-            
         }
+        // else if(error){
+        //     console.log("Error ",error);
+        //     this.error = error;
+        //     this.outputs = null;
+            
+        // }
     }
 }

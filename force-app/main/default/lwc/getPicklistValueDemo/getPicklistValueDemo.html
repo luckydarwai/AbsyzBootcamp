@@ -1,0 +1,56 @@
+<template>
+    <lightning-card
+    title="picklist Demo"
+    icon-name="cusom:custom14"
+    >
+<template lwc:if={industryPickList.data}>
+
+    <lightning-combobox
+    class="slds-var-p-around_small"
+    name="Progress"
+    label="Industry"
+    value={value}
+    placeholder="Select Industry"
+    options={industryPickList.data.values}
+    onchange={handleChange}
+    ></lightning-combobox>
+    
+    <p>Selected value is : {value}</p>
+</template>
+    </lightning-card>
+
+
+    <lightning-card
+    title="picklist VAlue by recordTypeId"
+    icon-name="cusom:custom14"
+    >
+<template lwc:if={accountInfoPicklist.data}>
+
+    <lightning-combobox
+    class="slds-var-p-around_small"
+    name="Rating"
+    label="Rating"
+    placeholder="Select Rating"
+    options={accountInfoPicklist.data.picklistFieldValues.Rating.values}
+    ></lightning-combobox>
+
+</template>
+    </lightning-card>
+
+    <lightning-card
+    title="picklist Value by recordTypeId"
+    icon-name="cusom:custom14"
+    >
+<template lwc:if={accountInfoPicklist.data}>
+
+    <lightning-combobox
+    class="slds-var-p-around_small"
+    name="Active"
+    label="Active"
+    placeholder="Select Rating"
+    options={accountInfoPicklist.data.picklistFieldValues.Active__c.values}
+    ></lightning-combobox>
+
+</template>
+    </lightning-card>
+</template>
