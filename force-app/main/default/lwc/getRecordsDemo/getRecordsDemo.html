@@ -1,0 +1,7 @@
+<template>
+    <lightning-card title="Get Records Demo">
+        <template for:each={outputs} for:item="output">
+            <p class="slds-var-p-around_small"  key={output.result.id}>{output.result.fields.Name.value}</p>
+        </template>
+    </lightning-card>
+</template>

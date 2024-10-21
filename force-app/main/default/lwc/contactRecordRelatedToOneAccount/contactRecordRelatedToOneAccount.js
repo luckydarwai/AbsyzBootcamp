@@ -15,7 +15,7 @@ export default class ContactRecordRelatedToOneAccount extends LightningElement {
     };
 
     connectedCallback() {
-        this.callApexMethod();
+        this.callApexMethod();3
     }
 
     callApexMethod() {
@@ -54,7 +54,7 @@ export default class ContactRecordRelatedToOneAccount extends LightningElement {
             return; 
         }
 
-        createContact({ con: this.rec })
+        createContact({ con: this.rec })  // we have passed the rec from here then we are emptying the rec. then showing the toast message
             .then(result => {
                 this.rec = { LastName: '', Title: '', Email: '', Phone: '' }; // Reset form
                 this.dispatchEvent(
