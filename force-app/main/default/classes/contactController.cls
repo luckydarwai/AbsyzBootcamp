@@ -14,4 +14,11 @@ public with sharing class contactController {
     {
         return [SELECT Id, Name, Title, Phone, Email FROM Contact];
     }
+
+
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getContactList(){
+        List<Contact> conList = [SELECT Id,Name,FirstName,LastName,Title,Phone,Email,PhotoUrl FROM Contact WHERE PhotoUrl != null with USER_MODE LIMIT 10];
+        return conList;
+    }
 }           

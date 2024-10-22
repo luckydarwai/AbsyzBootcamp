@@ -1,0 +1,20 @@
+<template>
+    <lightning-card 
+    title="Contact List" 
+    >
+    
+    <lightning-layout class="slds-var-m-around_small">
+        <lightning-layout-item>
+            <template lwc:if={contacts.data}>
+                <template for:each={contacts.data} for:item="contact"></template>
+                <c-contact-item contact={contact}></c-contact-item>
+            </template>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            
+        </lightning-layout-item>
+    </lightning-layout>
+    
+    
+</lightning-card>
+</template>
