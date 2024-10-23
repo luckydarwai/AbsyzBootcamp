@@ -18,15 +18,7 @@ export default class CustomLookup extends LightningElement {
         searchKey : '$searchvalue'
     })
     outputs;
-    // outputsFunction({data,error}){
-    //     if (data) {
-    //         console.log('Data ',data);
-    //     }
-    //     else if(error)
-    //         {
-    //         console.log('Error ',error);
-    //     }
-    // };
+  
 
     // get showOutput(){
     //  return this.outputs.data;
@@ -62,7 +54,7 @@ export default class CustomLookup extends LightningElement {
             seletedName : outputRecord.Name
           } 
           this.displayOptions = false;
-          
+          this.sendSelection();
     }
 
 
@@ -72,7 +64,18 @@ export default class CustomLookup extends LightningElement {
         selectedId : '',
         seletedName: ''
       };   
-
+      this.sendSelection();
       this.displayOptions = false;
+
+    }
+
+
+
+
+    sendSelection(){
+      let mySelectionEvent = new CustomEvent("selectedrec",{
+        detail : this.selectedRecord.selectedId
+      });
+      this.dispatchEvent(mySelectionEvent);
     }
 }
