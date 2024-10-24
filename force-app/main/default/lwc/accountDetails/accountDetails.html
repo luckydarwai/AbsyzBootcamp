@@ -1,0 +1,85 @@
+<template>
+    <lightning-card 
+       title="Create Account" icon-name="custom34"
+    >
+        <div class="slds-var-p-around_small">
+
+            <lightning-combobox
+            name="parantacc"
+            label="Parent Account"
+            placeholder="Select Parent Account"
+            options={parentOptions}
+            onchange={handleChange}
+            required="true"
+            message-when-value-missing="Please select Parent Account"
+            class="validetme"
+            
+            >
+        </lightning-combobox>
+
+        <lightning-input 
+          label="Account Name"
+          name="accname"
+          placeholder="Enter Account Name"
+          onchange={handleChange}
+          type="text"
+          required="true"
+          message-when-value-missing="Enter Account Name"
+          min-length="2"
+           max-length="60"
+            message-when-too-short="Minimum Length of Account is 2"
+            message-when-too-long="Maximum length of Account is 60"
+            class="validetme"
+        ></lightning-input>
+
+        <lightning-input 
+        type="Date"
+        onchange={handleChange}
+        label = "SLA Expiration Date"
+        name = "slaexpdt"
+       
+        >
+
+        </lightning-input>
+
+    <lightning-radio-group 
+        name="slatype"
+        label="SLA Type"
+        options={slaPicklistval.values}
+        type="button"
+        onchange={handleChange}
+     
+        >
+    </lightning-radio-group>
+
+    <lightning-slider 
+    label="Number of Locations"
+    min="1"
+    max="50"
+    step="1"
+    value={selnoOfLocations}
+    name="nooflocations"
+    onchange={handleChange}
+   
+    ></lightning-slider>
+        
+    <lightning-input-rich-text 
+    name="description"
+    label="Description"
+    label-visible="false"
+    onchange={handleChange}
+    disabled-categories="FORMAT_FONT"
+  
+    ></lightning-input-rich-text>
+        </div>
+
+        <div class="slds-var-p-around_small">
+          <lightning-button
+            label="Save"
+            variant="brand"
+            onclick={saveRecord}
+          
+          ></lightning-button>
+        </div>
+</lightning-card>
+</template>

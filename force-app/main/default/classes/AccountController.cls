@@ -22,6 +22,10 @@ public with sharing class AccountController {
 
 
     @AuraEnabled(cacheable=true)
+    public static List<Account> getParentAccounts(){
+        return [Select Id,Name,Industry from Account where AnnualRevenue != null WITH USER_MODE];
+    }
+
     
 
 }
