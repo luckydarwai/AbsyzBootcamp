@@ -1,11 +1,11 @@
 <template>
     <lightning-card 
-       title="Create Account" icon-name="custom34"
+       title={formTitle} icon-name="custom34"
     >
         <div class="slds-var-p-around_small">
 
             <lightning-combobox
-            name="parantacc"
+            name="parentacc"
             label="Parent Account"
             placeholder="Select Parent Account"
             options={parentOptions}
@@ -13,6 +13,7 @@
             required="true"
             message-when-value-missing="Please select Parent Account"
             class="validetme"
+            value={selParentAcc}
             
             >
         </lightning-combobox>
@@ -30,6 +31,7 @@
             message-when-too-short="Minimum Length of Account is 2"
             message-when-too-long="Maximum length of Account is 60"
             class="validetme"
+            value={selAcc}
         ></lightning-input>
 
         <lightning-input 
@@ -37,6 +39,7 @@
         onchange={handleChange}
         label = "SLA Expiration Date"
         name = "slaexpdt"
+        value={slaExpDate}
        
         >
 
@@ -48,6 +51,7 @@
         options={slaPicklistval.values}
         type="button"
         onchange={handleChange}
+        value={slaType}
      
         >
     </lightning-radio-group>
@@ -57,9 +61,10 @@
     min="1"
     max="50"
     step="1"
-    value={selnoOfLocations}
     name="nooflocations"
     onchange={handleChange}
+    value={selnoOfLocations}
+    
    
     ></lightning-slider>
         
@@ -69,6 +74,8 @@
     label-visible="false"
     onchange={handleChange}
     disabled-categories="FORMAT_FONT"
+    value={description}
+
   
     ></lightning-input-rich-text>
         </div>
@@ -80,6 +87,15 @@
             onclick={saveRecord}
           
           ></lightning-button>
+       
+        <template lwc:if={recordId}>
+          <lightning-button 
+          variant="destructive" 
+          label="Delete Account" 
+          title="Delete action" 
+          onclick={deleteHandler} 
+          class="slds-m-left_x-small"></lightning-button>
+        </template>  
         </div>
 </lightning-card>
 </template>
