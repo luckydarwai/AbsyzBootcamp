@@ -1,0 +1,15 @@
+<template>
+    <lightning-card 
+     title="Contact Details"
+    >
+       <template for:each={contacts.data} for:item="con">
+            <div key={con.Id} class="slds-p-horizontal_small">
+                <li>
+
+                  <b>  Contact Name : </b> {con.Name}
+                </li>
+            </div>
+
+       </template>
+    </lightning-card>
+</template>
