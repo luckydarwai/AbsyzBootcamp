@@ -1,0 +1,12 @@
+<template>
+      <lightning-card 
+      title="ParentComponent">
+          <lightning-input 
+            type="text"
+            label="Enter some text"
+            onchange={textHandler}
+          ></lightning-input>
+        <c-assignment-29-t-10-child parent-some-text={someText}  onnotify={handleNotify}></c-assignment-29-t-10-child>  
+        <h1>Text From Child : {childText}</h1> 
+      </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card 
+    title="ChildComponent">
+    <h1>Text From Parent : {parentSomeText}</h1>   
+    
+    <lightning-input 
+        type="text"
+        label="Enter some text"
+        onchange={childTextHandler}
+        ></lightning-input>
+</lightning-card>
+</template>
