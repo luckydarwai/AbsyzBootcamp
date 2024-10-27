@@ -1,3 +1,4 @@
+
 import { LightningElement,wire } from 'lwc';
 import {
     subscribe,
@@ -29,7 +30,7 @@ export default class SubcribeLMS extends LightningElement {
     } 
 
     handleMessage(message) {
-        this.pubMessage = message.lmsData;
+        this.pubMessage = message.lmsDataKey;
     }
     disconnectedCallback() {
         this.unsubscribeToMessageChannel();

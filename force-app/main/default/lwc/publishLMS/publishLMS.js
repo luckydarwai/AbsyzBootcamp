@@ -11,9 +11,10 @@ export default class PublishLMS extends LightningElement {
     messageContext;
 
     publishMessage(event)
+
     {
 
-        const payload = { lmsData: "Welcome from Publisher" };
+        const payload = { lmsDataKey: "Welcome from Publisher" };
 
         publish(this.messageContext, recordSelected, payload);
     }
