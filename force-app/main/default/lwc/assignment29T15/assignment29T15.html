@@ -1,0 +1,34 @@
+<template>
+    <lightning-card
+      icon-name="standard:account" variant="base"
+      title="Create Record Using Lightning/uiRecordApi"
+    >
+      <div class="slds-p-horizontal_small">
+         <!-- Name  -->
+         <lightning-input 
+           type="text" 
+           label="Enter Contact Name"
+           name="name"
+           onchange={handleInput}
+           ></lightning-input>
+
+         <!-- Rating  -->
+         <lightning-combobox
+         name="leadsource"
+         label="Lead Source"
+         placeholder="Select Lead Source"
+         options={leadSourcePickList}
+         onchange={handleInput} >
+        </lightning-combobox>
+
+
+         <!-- Create Account Button  -->
+         <lightning-button 
+           variant="brand" 
+           label="Create Contact"
+           title="Create Contact" 
+           onclick={handleCreate} 
+           class="slds-m-left_x-small"></lightning-button>
+      </div>
+    </lightning-card>
+</template>

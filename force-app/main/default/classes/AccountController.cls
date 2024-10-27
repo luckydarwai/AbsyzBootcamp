@@ -28,4 +28,12 @@ public with sharing class AccountController {
 
     
 
+
+ // Assignment - 29 Task 14
+
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getAccounts() {
+        return [SELECT Id, Name, AccountNumber, Phone, Industry, AnnualRevenue FROM Account LIMIT 10];
+    }
+
 }
