@@ -9,36 +9,45 @@ trigger ContactTrigger on Contact (after insert,after update,after delete,before
     
     
     if (Trigger.isAfter) {
-            
 
-        if (Trigger.isInsert) {
-            ContactTriggerHandler.updateTotalValueOnAccount(Trigger.new, null); // Pass null for oldMapCon during insert
-        } else if (Trigger.isUpdate) {
-            ContactTriggerHandler.updateTotalValueOnAccount(Trigger.new, Trigger.oldMap); // Pass oldMap for update
-        }
+
+            if (Trigger.isUpdate || Trigger.isInsert) {
+                ContactTriggerHandler.updateActiveContactOnAccount(Trigger.new,Trigger.oldMap);
+            }
+
+        // if (Trigger.isInsert) {
+        //     ContactTriggerHandler.updateTotalValueOnAccount(Trigger.new, null); // Pass null for oldMapCon during insert
+        // } else if (Trigger.isUpdate) {
+        //     ContactTriggerHandler.updateTotalValueOnAccount(Trigger.new, Trigger.oldMap); // Pass oldMap for update
+        // }
     
-        if (Trigger.isInsert || Trigger.isUpdate || Trigger.isDelete) {
+        // if (Trigger.isInsert || Trigger.isUpdate || Trigger.isDelete) {
             
-            ContactTriggerHandler.assignment_3_task1(Trigger.new,Trigger.old);
+        //     ContactTriggerHandler.assignment_3_task1(Trigger.new,Trigger.old);
            
             
-        }
+        // }
         
-        if (Trigger.isInsert) {
-            ContactTriggerHandler.createDriverAndClient(Trigger.new);
-        }
+        // if (Trigger.isInsert) {
+        //     ContactTriggerHandler.createDriverAndClient(Trigger.new);
+        // }
     }
     
     if (Trigger.isBefore) {
+       
+    //     if (Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate)) {
+    //         ContactTriggerHandler.updateSetupAndNonSetupObject(Trigger.new,Trigger.old);
+    //     }
+
         
-        if (Trigger.isInsert || Trigger.isUpdate) {
+    //     if (Trigger.isInsert || Trigger.isUpdate) {
             
-            ContactTriggerHandler.vehicleFieldRequired(Trigger.new);
-        }
+    //         ContactTriggerHandler.vehicleFieldRequired(Trigger.new);
+    //     }
         
-        if (Trigger.isUpdate) {
-            ContactTriggerHandler.preventChangingType(Trigger.new,Trigger.oldMap);
-        }
+    //     if (Trigger.isUpdate) {
+    //         ContactTriggerHandler.preventChangingType(Trigger.new,Trigger.oldMap);
+    //     }
         
         
         
