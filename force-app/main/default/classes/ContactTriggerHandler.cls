@@ -262,6 +262,44 @@ public with sharing class ContactTriggerHandler {
     }
     
     
+
+
+
+
+   public static void updateAccountDescription(List<Contact> newCon,Map<Id,Contact> oldMap)
+    {
+        Set<Id> accIds = new Set<Id>();  
+        for (Contact con : newCon) {
+            if (con.accountId != null && con.Description != null && con.Description != oldMap.get(con.Id).Description) {
+                accIds.add(con.accountId);
+            }
+           
+        }       
+
+       
+        Map<Id, Account> accMap = new Map<Id, Account>([Select Id,Description from Account where Id  In : accIds]);
+
+    
+
+         List<Account> accToUpdated = new List<Account>();
+
+         for (Contact con : newCon) {
+           Account acc = accMap.get(con.AccountId);
+           acc.Description = con.Description;
+           accToUpdated.add(acc);
+         }
+
+
+         if (!accToUpdated.isEmpty()) {
+            update accToUpdated;
+         }
+
+
+
+
+
+    }
+
 }
 
 

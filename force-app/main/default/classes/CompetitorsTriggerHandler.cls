@@ -6,9 +6,14 @@ public with sharing class CompetitorsTriggerHandler {
     List<Competitor__c> competitorsToUpdate = new List<Competitor__c>();
     
      for (Competitor__c competitor : restoredCompetitors) {
-        
-        competitor.Undeleted_Record__c = true;
-        competitorsToUpdate.add(competitor);
+
+        if (competitor != null  && competitor.Id != null) {
+            
+
+            competitor.Undeleted_Record__c = true;
+            competitorsToUpdate.add(competitor);
+        }
+       
      }
 
 

@@ -11,10 +11,14 @@ trigger AccountTrigger on Account (before insert,before update,before delete,aft
         // }
     // }
     
- if(trigger.isAfter)
-    if (trigger.isUpdate) {
-        AccountTriggerHandler.parentAccountTrigger(trigger.new,trigger.oldMap);
+ if(trigger.isAfter && trigger.isUpdate)
+   {
+        // AccountTriggerHandler.parentAccountTrigger(trigger.new,trigger.oldMap);
+        
+        AccountTriggerHandler.updateChild(trigger.new,trigger.oldMap);       
 
 
-    }
+  }
+
+
 }

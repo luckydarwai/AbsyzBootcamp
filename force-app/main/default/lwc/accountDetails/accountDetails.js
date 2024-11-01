@@ -8,7 +8,7 @@ import ACCOUNT_SLA_TYPE from '@salesforce/schema/Account.SLA__c';
 import ACCOUNT_PARENT from '@salesforce/schema/Account.ParentId';
 import ACCOUNT_NAME from '@salesforce/schema/Account.Name';
 import ACCOUNT_SLA_EXPIRY_DT from '@salesforce/schema/Account.SLAExpirationDate__c';
-import ACCOUNT_NO_OF_LOCATION from '@salesforce/schema/Account.NumberofLocations__C';
+import ACCOUNT_NO_OF_LOCATION from '@salesforce/schema/Account.NumberofLocations__c';
 import ACCOUNT_DESCRIPTION from '@salesforce/schema/Account.Description';
 import { NavigationMixin } from 'lightning/navigation';
 import { createRecord, deleteRecord, getFieldValue, getRecord, updateRecord } from 'lightning/uiRecordApi';

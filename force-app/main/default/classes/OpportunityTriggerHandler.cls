@@ -3,11 +3,12 @@ public with sharing class OpportunityTriggerHandler {
         // Constructor 
     }
 
-    // 7) Create a trigger to delete Competitors records when the opportunity gets deleted.
 
     public static void task7(List<Opportunity> deleteOpp)
     {     
       
+
+
     // Way one
 
         // List<Competitor__c> listName = [SELECT ID FROM Competitor__c WHERE Opportunity__c IN : deleteOpp];

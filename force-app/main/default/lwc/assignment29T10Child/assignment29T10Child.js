@@ -12,6 +12,5 @@ export default class Assignment29T10Child extends LightningElement {
        this.dispatchEvent(custEvent);
    
   }
-  
 
 }

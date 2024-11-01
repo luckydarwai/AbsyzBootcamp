@@ -1,10 +1,6 @@
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { LightningElement, wire } from 'lwc';
 import  ACCOUNT_OBJECT from '@salesforce/schema/Account';
-
-
-
-// For multiple objects use (getObjectInfos) and pass the arrary to the objectApiName of objects which has imported.
 export default class GetObjectInfoDemo extends LightningElement {
    accountinfo;
    accounterror;

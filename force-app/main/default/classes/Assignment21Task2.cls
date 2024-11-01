@@ -24,7 +24,8 @@ public class Assignment21Task2 implements Schedulable{
               }
                 
             }
-        }            catch(Exception e){
+        }
+            catch(Exception e){
                 System.debug('Error occurred while deleting opportunities '+e.getMessage());
             }}
         }

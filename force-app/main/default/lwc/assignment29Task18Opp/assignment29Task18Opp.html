@@ -1,0 +1,21 @@
+<template>
+    <lightning-record-edit-form
+    object-api-name="Opportunity"
+    onsuccess={oppHandleSave}
+>
+    <lightning-messages> </lightning-messages>
+    <lightning-input-field field-name="Name"> </lightning-input-field>
+    <lightning-input-field field-name="Stage"> </lightning-input-field>
+    <lightning-input-field field-name="CloseDate"> </lightning-input-field>
+    <lightning-input-field field-name="StageName"> </lightning-input-field>
+    <lightning-input-field field-name="AccountId" value={recordId}> </lightning-input-field>
+    
+    <lightning-button
+    class="slds-m-top_small"
+    type="submit"
+    label="Create new Opp"
+>
+</lightning-button>
+
+</lightning-record-edit-form>
+</template>

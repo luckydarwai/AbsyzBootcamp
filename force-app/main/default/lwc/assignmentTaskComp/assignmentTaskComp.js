@@ -1,5 +1,5 @@
 import { LightningElement,api,wire } from 'lwc';
-import getContactsByAccountId from '@salesforce/apex/ContactController.getContactsByAccountId';
+import getContactsByAccountId from '@salesforce/apex/contactController.getContactsByAccountId';
 
 export default class AssignmentTaskComp extends LightningElement {
 
@@ -8,8 +8,21 @@ export default class AssignmentTaskComp extends LightningElement {
 
     showText(event){
         this.showTextVar = !this.showTextVar;    
-      
+        // event.target.checked
+
+
+    //     if (this.showTextVar) {
+    //         this.showTextVar = false;
+    //     }
+    //    else{
+    //     this.showTextVar = true;
+    //    }
+       
     }
+
+
+
+
 
     @api recordId;  // This will hold the Account Id
 
@@ -31,5 +44,6 @@ export default class AssignmentTaskComp extends LightningElement {
         console.log("data of contactList : ", this.contactList);
         }
     };
+
     
 }

@@ -18,8 +18,8 @@ export default class GetRecordDemo extends LightningElement {
             // this.accname =   getFieldValue(data,ACCOUNT_NAME); // used for calculation purpose
             // this.accRevenue = getFieldValue(data,ACCOUNT_REVENUE);
                       
-            this.accname = getFieldDisplayValue(data,ACCOUNT_NAME); // we don't have display value
-            this.accRevenue = getFieldDisplayValue(data,ACCOUNT_REVENUE); // have field we get formetted value
+            this.accname = getFieldDisplayValue(data,ACCOUNT_NAME);
+            this.accRevenue = getFieldDisplayValue(data,ACCOUNT_REVENUE);
         }else if(error){
             console.log("Error ",error);
             

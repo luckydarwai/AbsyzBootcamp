@@ -2,14 +2,21 @@
 // Description of Contact should be updated with
 // “Title of AccountName : Account’s Description“
 // Contact which does not have any Account associated with it, should not be updated
+
+
 global class ContactUpdateBatchJob implements Database.Batchable<sObject>
 {
-    // Variable to Store total number of records
-    Integer totalRecords = 0;
-    Integer totalBatches = 0;
+
+
+   // Variable to Store total number of records
+
+   Integer totalRecords = 0;
+   Integer totalBatches = 0;
+
+
     global Database.QueryLocator start(Database.BatchableContext BC)
     {
-        String query = 'SELECT Id,Name,Description,Account.Name,Account.Description FROM Contact WHERE AccountId <> NULL';
+        String query = 'SELECT Id,Name,Description,Account.Name,Account.Description FROM Contact WHERE Id <> NULL';
         totalRecords = [SELECT COUNT() FROM Contact WHERE AccountId != NULL];
         return Database.getQueryLocator(query);
     }
@@ -21,6 +28,7 @@ global class ContactUpdateBatchJob implements Database.Batchable<sObject>
             con.Description = con.Account.Name +' : '+con.Account.Description;
             conToUpdate.add(con);
         }
+        
         if (!conToUpdate.isEmpty()) {
             try {
                 update conToUpdate;                
@@ -28,6 +36,7 @@ global class ContactUpdateBatchJob implements Database.Batchable<sObject>
                 System.debug(e.getMessage());
             }
         }
+
         // Count the current batch
         totalBatches++;
         System.debug('Processed Batch Number: ' + totalBatches);

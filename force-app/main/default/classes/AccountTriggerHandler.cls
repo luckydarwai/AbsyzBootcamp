@@ -95,10 +95,40 @@ public with sharing class AccountTriggerHandler {
 
 
 
-  //  Assignment : Day 22
+// Practice Questions 
 
 
-  
+public static void updateChild(List<Account> newList,Map<Id,Account> oldMap)
+{
+   Map<Id, Account> accounts = new Map<Id, Account>();
+    List<Contact> conListToBeUpdated = new List<Contact>();
+
+      for (Account acc : newList) {
+        if (acc.phone != null && acc.phone != oldMap.get(acc.Id).phone) {
+            
+              accounts.put(acc.Id,acc);
+        }
+           
+      }
+
+    List<Contact> conList = [Select Id,AccountId, Phone from Contact where AccountId in:accounts.keySet()];
+
+   if (!conList.isEmpty()) {
+    
+       for (Contact con : conList) {
+           con.phone = accounts.get(con.AccountId).phone;
+           conListToBeUpdated.add(con);
+       }
+   }  
+    
+
+
+      if (!conListToBeUpdated.isEmpty()) {        
+        update conListToBeUpdated;
+      }
+   
+
+}
 
 
 }

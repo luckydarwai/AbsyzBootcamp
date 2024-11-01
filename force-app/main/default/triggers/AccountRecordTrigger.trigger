@@ -8,14 +8,14 @@ trigger AccountRecordTrigger on Account (before update,after update) {
     if (Trigger.isAfter) {
         if (Trigger.isUpdate) {
          
-            AccountHandler.updateOpportunityPhone(Trigger.new,Trigger.oldMap);  
+            // AccountHandler.updateOpportunityPhone(Trigger.new,Trigger.oldMap);  
           
           
             if (!PreventRecursion.firstCall)             
             {  
               
                 PreventRecursion.firstCall = true;
-                AccountHandler.updateAccount(Trigger.new,Trigger.oldMap);
+                // AccountHandler.updateAccount(Trigger.new,Trigger.oldMap);
                 
             }
 

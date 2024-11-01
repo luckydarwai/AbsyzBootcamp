@@ -5,7 +5,6 @@ if (trigger.isInsert) {
 }
  
 if (trigger.isBefore) {
-    
     InvoiceTriggerHandler.task3(trigger.old);
 }
 

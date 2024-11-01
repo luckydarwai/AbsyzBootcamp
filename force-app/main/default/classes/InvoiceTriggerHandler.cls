@@ -20,7 +20,7 @@ public with sharing class InvoiceTriggerHandler {
     for (Invoice__c i : inv) {
         
         if (i.Status__c == 'Closed') {
-            
+            // Prevent deletion by adding an error
             i.addError('You cannot delete an Invoice that is in Closed status.');
         }
     }

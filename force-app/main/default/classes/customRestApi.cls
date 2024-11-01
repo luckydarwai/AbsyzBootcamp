@@ -9,13 +9,18 @@ global with sharing class customRestApi {
         // Get the AccountNumber from the request URI
         String AccNumber = req.requestURI.substring(req.requestURI.lastIndexOf('/') + 1);
         
+        // Query the account using AccountNumber
         List<Account> result = [SELECT Id, Name, Phone, Website FROM Account WHERE id = :AccNumber LIMIT 1];
         
         // Check if the result list has any records
-        if (result.isEmpty()) {            
+        if (result.isEmpty()) {
+            // Option 1: Return null if no account is found
             return null;
-        
+            
+            // Option 2: Throw an exception to indicate no account was found
+            // throw new CustomException('No account found for AccountNumber: ' + AccNumber);
         } else {
+            // Return the first record if found
             return result[0];
         }
     }

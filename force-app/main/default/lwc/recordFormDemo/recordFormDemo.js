@@ -30,7 +30,7 @@ export default class RecordFormDemo extends NavigationMixin(LightningElement) {
     }
     
     
-    // you can take this approach to jumt to created new one record in order to record form
+    
     navigateToRecordPage(event){
         
         // console.log('Event Detail ',event.detail);

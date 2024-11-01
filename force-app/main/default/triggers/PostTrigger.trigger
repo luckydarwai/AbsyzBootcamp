@@ -48,7 +48,6 @@ trigger PostTrigger on Post__c (before insert,after update) {
     }
 
 
-
     try {
         if (trigger.isAfter && trigger.isUpdate) {
             for (Post__c post : trigger.new) {
@@ -61,13 +60,9 @@ trigger PostTrigger on Post__c (before insert,after update) {
                
             }
             }
-
     } catch (Exception e) {
        
     }
-
-
-
 
    
 }
