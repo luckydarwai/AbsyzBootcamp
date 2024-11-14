@@ -15,9 +15,9 @@ trigger AccountTrigger on Account (before insert,before update,before delete,aft
    {
         // AccountTriggerHandler.parentAccountTrigger(trigger.new,trigger.oldMap);
         
-        AccountTriggerHandler.updateChild(trigger.new,trigger.oldMap);       
+        // AccountTriggerHandler.updateChild(trigger.new,trigger.oldMap);       
 
-
+        // AccountTriggerHandler.sendMailToContact(trigger.new,trigger.oldMap);
   }
 
 

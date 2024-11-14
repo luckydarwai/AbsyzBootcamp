@@ -36,4 +36,17 @@ public with sharing class contactController {
         }
         return conList;
     }
+
+
+
+
+
+
+
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getContactListForDataTAble(){
+                        List<Contact> conList = [SELECT Id,Name,Title,Phone,Email,Picture__c,Rank__c,AccountId,Account.Name
+                        FROM Contact WHERE AccountId != null with USER_MODE LIMIT 10];
+        return conList;
+    }
 }

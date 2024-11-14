@@ -131,4 +131,45 @@ public static void updateChild(List<Account> newList,Map<Id,Account> oldMap)
 }
 
 
+
+  public static void sendMailToContact(List<Account> accList,Map<Id,Account> oldMap)
+  {
+    Set<Id> accIds = new Set<Id>();
+
+    if (!accList.isEmpty()) {
+        for (Account acc  : accList) {
+            if (acc.Type != oldMap.get(acc.Id).Type) {
+                accIds.add(acc.Id);
+            }
+        }
+    }
+
+   List<Contact> conList = [Select Id,Email,LastName, AccountId from Contact where AccountId In : accIds];
+   List< Messaging.SingleEmailMessage> emailList = new List< Messaging.SingleEmailMessage>();
+   if (!conList.isEmpty()) {
+     for (Contact con  : conList) {
+         if (con.Email != null) {
+             Messaging.SingleEmailMessage mail = new  Messaging.SingleEmailMessage();
+
+             mail.setTargetObjectId(con.Id);
+             mail.setSenderDisplayName('System Adminstrator');
+             mail.setSubject('Account Update Info');
+
+             String body = 'Dear'+con.LastName+', <br/>';
+             body += 'Your account type has been updated successfully';
+             mail.setHtmlBody(body);
+             mail.toAddresses = new String[]{con.Email};
+             emailList.add(mail);
+         }
+     }
+   }
+
+
+   if (!emailList.isEmpty()) {
+     Messaging.sendEmail(emailList);
+     
+   }
+
+  }
+
 }

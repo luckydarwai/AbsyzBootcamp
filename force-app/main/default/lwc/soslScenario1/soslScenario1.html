@@ -1,0 +1,160 @@
+<template>
+    <lightning-card class="slds-p-horizontal_large">
+        <div class="slds-p-around_medium lgc-bg slds-p-horizontal_large">
+            <lightning-input 
+            name="search"
+            type="text" 
+            label="Enter text for Search"
+            onchange={inputHandler}
+            ></lightning-input>
+            <div>
+                
+                <!-- Grid View  -->
+                
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <template if:true={accounts}>
+                            <h1>Accounts</h1>
+                            <template for:each={accounts} for:item="acc">
+                                <lightning-layout vertical-align="center" key={acc.id}>
+                                    <li>
+                                        <!-- {acc.Id} -->
+                                        {acc.Name}
+                                        
+                                    </li>
+                                </lightning-layout>
+                            </template>
+                        </template>
+                    </div>
+                    <div class="slds-col">
+                        <template if:true={contacts}>
+                            <h1>Contacts</h1>
+                            
+                            <template for:each={contacts} for:item="con">
+                                <lightning-layout vertical-align="center" key={con.id}>
+                                    <li>
+                                        <!-- {con.Id} -->
+                                        {con.Name}
+                                        
+                                    </li>
+                                </lightning-layout>
+                            </template>
+                        </template>
+                    </div>
+                    <div class="slds-col">
+                        <template if:true={opportunities}>
+                            <h1>Opportunities</h1>
+                            
+                            <template for:each={opportunities} for:item="opp">
+                                <lightning-layout vertical-align="center" key={opp.id}>
+                                    <li>
+                                        <!-- {opp.Id} -->
+                                        {opp.Name}
+                                        
+                                    </li>
+                                </lightning-layout>
+                            </template>
+                        </template>
+                    </div>
+                    <div class="slds-col">
+                        <template if:true={leads}>
+                            <h1>Leads</h1>
+                            
+                            <template for:each={leads} for:item="lead">
+                                <lightning-layout vertical-align="center" key={lead.id}>
+                                    <li>
+                                        <!-- {lead.Id} -->
+                                        {lead.Name}
+                                        
+                                    </li>
+                                </lightning-layout>
+                            </template>
+                        </template>
+                    </div>
+                    
+                    <div class="slds-col">
+                        <template if:true={cases}>
+                            <h1>Cases</h1>
+                            <template for:each={cases} for:item="cas">
+                                <lightning-layout vertical-align="center" key={cas.id}>
+                                    <li>
+                                        <!-- {cas.Id} -->
+                                        {cas.Status}
+                                        
+                                    </li>
+                                </lightning-layout>
+                            </template>
+                        </template>
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+            <div class="slds-media slds-media_center">               
+                <lightning-button 
+                name="Account"
+                variant="brand" 
+                label="Account" 
+                title="Primary action" 
+                onclick={handleClick} 
+                class="slds-m-left_x-small">
+            </lightning-button>
+            <lightning-button 
+            variant="brand" 
+            label="Contact" 
+            name="Contact" 
+            title="Primary action" 
+            onclick={handleClick} 
+            class="slds-m-left_x-small">
+        </lightning-button> 
+        <lightning-button 
+        variant="brand" 
+        label="Opportunity" 
+        name="Opportunity" 
+        title="Primary action" 
+        onclick={handleClick} 
+        class="slds-m-left_x-small">
+    </lightning-button> 
+    <lightning-button 
+    variant="brand" 
+    label="Lead" 
+    name="Lead" 
+    title="Primary action" 
+    onclick={handleClick} 
+    class="slds-m-left_x-small">
+</lightning-button> 
+<lightning-button 
+variant="brand" 
+label="Case" 
+name="Case" 
+title="Primary action" 
+onclick={handleClick} 
+class="slds-m-left_x-small"></lightning-button>
+</div>
+</div>
+
+<div>
+    <template if:true={records}>
+        <div style="height: 300px;">
+            <lightning-datatable
+                    key-field="id"
+                    data={records}
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+
+        <!-- <template for:each={records} for:item="record">
+            <lightning-layout vertical-align="center" key={record.id}>
+                <li>
+                    {record.Id}   
+                    ---              
+                    {record.Name}
+                    
+                </li>
+            </lightning-layout>
+        </template> -->
+    </template>
+</div>
+</lightning-card>
+</template>

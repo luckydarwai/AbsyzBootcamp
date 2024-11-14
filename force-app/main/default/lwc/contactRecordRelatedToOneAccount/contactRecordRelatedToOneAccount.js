@@ -15,7 +15,7 @@ export default class ContactRecordRelatedToOneAccount extends LightningElement {
     };
 
     connectedCallback() {
-        this.callApexMethod();3
+        this.callApexMethod();
     }
 
     callApexMethod() {

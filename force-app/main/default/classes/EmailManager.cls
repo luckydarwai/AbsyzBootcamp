@@ -1,5 +1,5 @@
 public class EmailManager {
-   
+   /*
   
     // Public Static Method we can call this method without creating an instance of the class 
     public static void sendMail(String address,String subject,String body)
@@ -38,5 +38,5 @@ public class EmailManager {
         }
         return sendResult;
     }
-
+*/
 }
