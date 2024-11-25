@@ -1,12 +1,35 @@
 <template>
     <lightning-card class="slds-p-horizontal_large">
-        <div class="slds-p-around_medium lgc-bg slds-p-horizontal_large">
-            <lightning-input 
+        <div class="slds-form-element">
+            <div class="slds-p-around_medium lgc-bg slds-p-horizontal_large">
+                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+            <label class="slds-form-element__label" for="text-input-id-1">Input Label</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+
+                <lightning-icon size="x-small" class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default" icon-name="utility:search"></lightning-icon>
+                <input 
+                type="text" 
+                id="text-input-id-1" 
+                placeholder="Search Text" 
+                class="slds-input"
+                name="search"
+                label="Enter text for Search"
+                onchange={inputHandler}
+                />
+            </div>
+        </div>
+
+      
+
+            <!-- <lightning-icon icon-name="utility:search" style="position: absolute;padding: 5px;" size="small" alternative-text="Search Icon"></lightning-icon> 
+            <lightning-input             
             name="search"
             type="text" 
             label="Enter text for Search"
             onchange={inputHandler}
-            ></lightning-input>
+            ></lightning-input> -->
+          
+            </div>
             <div>
                 
                 <!-- Grid View  -->
